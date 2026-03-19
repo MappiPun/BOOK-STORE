@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: "Poppins", "sans-serif";
+  --color-shop-light-pink: #fcf0e4;
+  --color-shop-dark-green: #063c28;
+  --color-shop-btn-dark-green: #063d29;
+  --color-shop-light-bg: #f6f6f6;
+  --color-shop-light-green: #3b9c3c;
+  --color-shop-orange: #fb6c08;
+  --color-darkColor: #151515;
+  --color-lightColor: #52525b;
+  --color-shop-lightOrange: #fca99b;
+}
+
+*{margin: 0px; padding: 0px; box-sizing: border-box;}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+header .top-strip {
+    
+}
+
+.link:hover {color: #3b9c3c;}
