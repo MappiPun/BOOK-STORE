@@ -9,6 +9,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IoNotificationsOutline } from "react-icons/io5";
 import Tooltip from '@mui/material/Tooltip';
 import Navigation from '../Navigation/index';
+import LogoImg from '../../assets/images/logo1.png';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -53,7 +54,7 @@ const Header = () => {
 
           <div className="col1 w-[25%]">
             <Link to="/">
-              <img src="../src/assets/images/logo1.png" alt="Shop Logo" className="h-20 w-auto object-contain" />
+              <img src={LogoImg} alt="Shop Logo" className="h-16 w-auto object-contain" />
             </Link>
           </div>
 
