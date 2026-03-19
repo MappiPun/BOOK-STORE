@@ -8,6 +8,7 @@ import { FaRegHeart } from "react-icons/fa";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IoNotificationsOutline } from "react-icons/io5";
 import Tooltip from '@mui/material/Tooltip';
+import Navigation from '../Navigation/index';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -20,13 +21,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Header = () => {
   return (
-    <header className="w-full">
-      <div className="bg-white border-y border-gray-200 py-2">
+    <header className=" bg-white">
+      <div className="top-strip bg-white border-y border-t-[1px] border-gray-200 py-2">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
 
             <div className="flex-1">
-              <p className="text-[14px] font-medium text-gray-700">
+              <p className="text-[14px] font-medium font-semibold text-gray-700">
                 Get up to 99% off new season!
                 <span className="text-red-500 font-bold ml-1"> It's Officially SCAM!</span>
               </p>
@@ -35,10 +36,10 @@ const Header = () => {
             <nav aria-label="Top Navigation">
               <ul className="flex items-center gap-6">
                 <li>
-                  <Link to="/help-center" className="text-[13px] font-medium text-gray-600 hover:text-black transition">Help Center</Link>
+                  <Link to="/help-center" className="text-[13px] font-medium text-gray-600 hover:text-black transition font-semibold">Help Center</Link>
                 </li>
                 <li>
-                  <Link to="/order-tracking" className="text-[13px] font-medium text-gray-600 hover:text-shop-light-green transition">Order Tracking</Link>
+                  <Link to="/order-tracking" className="text-[13px] font-medium text-gray-600 hover:text-shop-light-green transition font-semibold">Order Tracking</Link>
                 </li>
               </ul>
             </nav>
@@ -47,7 +48,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className='header py-3'>
+      <div className='header py-3 border-b-[1px] border-gray-200'>
         <div className="container mx-auto px-4 flex items-center justify-between gap-4">
 
           <div className="col1 w-[25%]">
@@ -105,6 +106,9 @@ const Header = () => {
 
         </div>
       </div>
+
+      <Navigation/>
+
     </header>
   )
 }

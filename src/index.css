@@ -16,8 +16,10 @@
 *{margin: 0px; padding: 0px; box-sizing: border-box;}
 
 body {
+    background-color: #f6f6f6;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .container {
@@ -28,3 +30,6 @@ body {
 .link:hover {color: #3b9c3c;}
 
 .MuiBadge-badge{background-color: #3b9c3c !important;}
+
+nav button {text-transform: capitalize !important; color: rgba(0, 0, 0, 0.7) !important;}
+nav button:hover {text-transform: capitalize !important; color: #3b9c3c !important;}
