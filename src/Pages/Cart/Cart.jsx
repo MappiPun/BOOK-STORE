@@ -1,40 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt, FaPlus, FaMinus, FaArrowLeft } from "react-icons/fa";
 import { Button } from '@mui/material';
 
+// 1. Import the Cart Context Hook
+import { useCart } from '../../context/CartContext';
+
 const Cart = () => {
-    // Mock Cart Data (State so we can play with the numbers!)
-    const [cartItems, setCartItems] = useState([
-        {
-            id: 1,
-            title: "1984 (Classic Edition)",
-            author: "George Orwell",
-            price: 310,
-            quantity: 1,
-            image: "https://via.placeholder.com/150x200?text=1984"
-        },
-        {
-            id: 4,
-            title: "The Catcher in the Rye",
-            author: "J.D. Salinger",
-            price: 399,
-            quantity: 2,
-            image: "https://via.placeholder.com/150x200?text=Catcher+in+the+Rye"
-        }
-    ]);
-
-    // --- Actions ---
-    const updateQuantity = (id, newQuantity) => {
-        if (newQuantity < 1) return;
-        setCartItems(cartItems.map(item => 
-            item.id === id ? { ...item, quantity: newQuantity } : item
-        ));
-    };
-
-    const removeItem = (id) => {
-        setCartItems(cartItems.filter(item => item.id !== id));
-    };
+    // 2. Pull live cart data and functions from Context (No more mock state!)
+    const { cartItems, updateQuantity, removeFromCart } = useCart();
 
     // --- Calculations ---
     const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
@@ -82,7 +56,8 @@ const Cart = () => {
                                     {/* 1. Image & Title */}
                                     <div className="col-span-6 flex gap-4 w-full">
                                         <div className="w-20 md:w-24 shrink-0 bg-gray-100 rounded border border-gray-200 aspect-[3/4] overflow-hidden">
-                                            <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                                            {/* Handles missing image fallback */}
+                                            <img src={item.image || `https://via.placeholder.com/150x200?text=${item.title.replace(/ /g, '+')}`} alt={item.title} className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex flex-col justify-center">
                                             <Link to={`/product/${item.id}`} className="font-bold text-gray-900 text-lg hover:text-[#00c853] transition-colors line-clamp-2 leading-tight mb-1">
@@ -120,7 +95,8 @@ const Cart = () => {
                                     {/* 4. Remove Button */}
                                     <div className="col-span-1 flex justify-center w-full md:w-auto mt-2 md:mt-0">
                                         <button 
-                                            onClick={() => removeItem(item.id)}
+                                            // Make sure we use removeFromCart from context!
+                                            onClick={() => removeFromCart(item.id)}
                                             className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-2 rounded-full transition-all"
                                             title="Remove item"
                                         >
@@ -164,7 +140,6 @@ const Cart = () => {
                                     <span className="text-3xl font-black text-[#00c853]">฿ {total}</span>
                                 </div>
 
-                                {/* FIXED: Added routing to the Checkout page */}
                                 <Button 
                                     component={Link}
                                     to="/checkout"

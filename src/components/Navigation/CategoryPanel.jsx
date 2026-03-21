@@ -2,22 +2,24 @@ import React from 'react';
 import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { GiBookPile, GiCrystalBall, GiGhost, GiSherlockHolmes } from "react-icons/gi";
-import { FaChild, FaHistory, FaMicroscope, FaLightbulb } from "react-icons/fa";
+import { FaChild, FaHistory, FaGraduationCap, FaLightbulb, FaLeaf } from "react-icons/fa";
 import { MdOutlineMenuBook, MdClose } from "react-icons/md";
 import Logo from "../../assets/images/logo1.png";
 
 const CategoryPanel = ({ isOpenPanel, setIsOpenPanel }) => {
 
+    // Updated Category List to match your new requirements
     const categories = [
-        { title: 'Fiction', icon: <GiBookPile />, slug: '/fiction' },
-        { title: 'Non-Fiction', icon: <MdOutlineMenuBook />, slug: '/non-fiction' },
-        { title: 'Mystery', icon: <GiSherlockHolmes />, slug: '/mystery' },
-        { title: 'Horror', icon: <GiGhost />, slug: '/horror' },
-        { title: 'Sci-Fi & Fantasy', icon: <GiCrystalBall />, slug: '/sci-fi' },
-        { title: 'History', icon: <FaHistory />, slug: '/history' },
-        { title: 'Science', icon: <FaMicroscope />, slug: '/science' },
-        { title: "Children's Books", icon: <FaChild />, slug: '/children' },
-        { title: 'Specialty', icon: <FaLightbulb />, slug: '/specialty' },
+        { title: 'Fiction', icon: <GiBookPile />, slug: '/category/Fiction' },
+        { title: 'Non-Fiction', icon: <MdOutlineMenuBook />, slug: '/category/Non-Fiction' },
+        { title: 'Mystery', icon: <GiSherlockHolmes />, slug: '/category/Mystery' },
+        { title: 'Horror', icon: <GiGhost />, slug: '/category/Horror' },
+        { title: 'SciFi & Fantasy', icon: <GiCrystalBall />, slug: '/category/SciFi & Fantasy' },
+        { title: 'History', icon: <FaHistory />, slug: '/category/History' },
+        { title: 'Education', icon: <FaGraduationCap />, slug: '/category/Education' },
+        { title: 'Children Book', icon: <FaChild />, slug: '/category/Children Book' },
+        { title: 'Lifestyle', icon: <FaLeaf />, slug: '/category/Lifestyle' },
+        { title: 'Speciality', icon: <FaLightbulb />, slug: '/category/Speciality' },
     ];
 
     return (
@@ -67,17 +69,7 @@ const CategoryPanel = ({ isOpenPanel, setIsOpenPanel }) => {
                 </List>
 
                 <Box className="p-10 flex justify-center items-center border-t border-gray-100">
-                    <img 
-                        src={Logo} 
-                        alt="Logo" 
-                        style={{ 
-                            width: '160px', 
-                            height: 'auto', 
-                            display: 'block',
-                            pointerEvents: 'none',
-                            userSelect: 'none'
-                        }} 
-                    />
+                    <img src={Logo} alt="Logo" style={{ width: '160px', height: 'auto' }} />
                 </Box>
             </Box>
         </Drawer>

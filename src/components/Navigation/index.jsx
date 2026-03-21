@@ -30,32 +30,32 @@ const Navigation = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/fiction" className='text-[14px] font-[500]'>
+                                <Link to="category/Fiction" className='text-[14px] font-[500]'>
                                     <Button className='!text-black hover:!text-shop-light-green transition-colors capitalize'>Fiction</Button>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/non-fiction" className='text-[14px] font-[500]'>
+                                <Link to="category/Non-Fiction" className='text-[14px] font-[500]'>
                                     <Button className='!text-black hover:!text-shop-light-green transition-colors capitalize'>Non-Fiction</Button>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/children" className='text-[14px] font-[500]'>
+                                <Link to="category/Children%20Book" className='text-[14px] font-[500]'>
                                     <Button className='!text-black hover:!text-shop-light-green transition-colors capitalize'>Children's Books</Button>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/speciality" className='text-[14px] font-[500]'>
+                                <Link to="category/Speciality" className='text-[14px] font-[500]'>
                                     <Button className='!text-black hover:!text-shop-light-green transition-colors capitalize'>Specialty</Button>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/lifestyle" className='text-[14px] font-[500]'>
+                                <Link to="category/Lifestyle" className='text-[14px] font-[500]'>
                                     <Button className='!text-black hover:!text-shop-light-green transition-colors capitalize'>Lifestyle</Button>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/education" className='text-[14px] font-[500]'>
+                                <Link to="category/Education" className='text-[14px] font-[500]'>
                                     <Button className='!text-black hover:!text-shop-light-green transition-colors capitalize'>Education</Button>
                                 </Link>
                             </li>
