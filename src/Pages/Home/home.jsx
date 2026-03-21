@@ -2,7 +2,6 @@ import React from "react";
 import HomeSlider from "../../components/Home/HomeSlider";
 import ProductSlider from "../../components/Products/ProductSlider";
 import NewsletterBanner from "../../components/Footer/NewsletterBanner";
-import Footer from "../../components/Footer/Footer"; // <-- 1. Import your new Footer!
 
 const Home = () => {
     return (
@@ -27,9 +26,6 @@ const Home = () => {
 
             {/* 6. Newsletter Banner */}
             <NewsletterBanner />
-
-            {/* 7. Global Footer */}
-            <Footer /> {/* <-- 2. Add it right at the very bottom! */}
 
         </div>
     );

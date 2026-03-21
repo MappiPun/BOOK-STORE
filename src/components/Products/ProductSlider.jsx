@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { FaHeart } from "react-icons/fa"; 
@@ -20,6 +21,7 @@ const ProductSlider = ({ title }) => {
         <div className="w-full">
             <div className="container mx-auto px-4">
                 
+                {/* Section Header */}
                 <div className="flex items-center justify-between border-b border-gray-200 pb-2 mb-6">
                     <h3 className="text-xl font-bold text-gray-800 flex items-center gap-1">
                         {title}
@@ -30,12 +32,12 @@ const ProductSlider = ({ title }) => {
                     </button>
                 </div>
 
+                {/* Slider Container */}
                 <div className="relative">
                     <style>
                         {`
                             .product-swiper .swiper-button-next, 
                             .product-swiper .swiper-button-prev {
-                                /* Default state: Transparent Grey */
                                 background-color: rgba(150, 150, 150, 0.15); 
                                 width: 36px !important;
                                 height: 36px !important;
@@ -43,11 +45,9 @@ const ProductSlider = ({ title }) => {
                                 box-shadow: 0 2px 8px rgba(0,0,0,0.05);
                                 color: #555 !important;
                                 margin-top: -30px;
-                                /* Smooth fade effect */
                                 transition: all 0.3s ease; 
                             }
                             
-                            /* Hover state: Transparent Green */
                             .product-swiper .swiper-button-next:hover, 
                             .product-swiper .swiper-button-prev:hover {
                                 background-color: rgba(0, 200, 83, 0.15); 
@@ -76,8 +76,12 @@ const ProductSlider = ({ title }) => {
                     >
                         {mockBooks.map((book) => (
                             <SwiperSlide key={book.id}>
-                                <div className="border border-gray-200 bg-white flex flex-col group h-full shadow-sm hover:shadow-md transition-shadow">
-                                    
+                                {/* WRAPPED ENTIRE CARD IN LINK */}
+                                <Link 
+                                    to={`/product/${book.id}`}
+                                    className="border border-gray-200 bg-white flex flex-col group h-full shadow-sm hover:shadow-md transition-shadow cursor-pointer block"
+                                >
+                                    {/* Image & Badges */}
                                     <div className="relative w-full aspect-[3/4] bg-gray-50 overflow-hidden border-b border-gray-100">
                                         <div className="absolute top-0 right-0 flex flex-col items-end z-10">
                                             {book.discount && (
@@ -104,6 +108,7 @@ const ProductSlider = ({ title }) => {
                                         />
                                     </div>
 
+                                    {/* Product Details */}
                                     <div className="p-3 flex-1 flex flex-col">
                                         <h4 className="text-[14px] font-bold text-gray-900 line-clamp-2 leading-tight mb-1" title={book.title}>
                                             {book.title}
@@ -120,13 +125,13 @@ const ProductSlider = ({ title }) => {
                                                 <span className="text-[11px] text-gray-500 mt-0.5">{book.ratingCount} Rating</span>
                                             </div>
                                             
-                                            <button className="bg-[#00c853] hover:bg-[#00a846] text-white text-[13px] font-bold py-1 px-3 rounded shadow-sm transition-colors">
+                                            {/* Changed to div to avoid invalid nested <button> inside <Link> */}
+                                            <div className="bg-[#00c853] group-hover:bg-[#00a846] text-white text-[13px] font-bold py-1 px-3 rounded shadow-sm transition-colors text-center">
                                                 ฿ {book.price}
-                                            </button>
+                                            </div>
                                         </div>
                                     </div>
-
-                                </div>
+                                </Link>
                             </SwiperSlide>
                         ))}
                     </Swiper>
